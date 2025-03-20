@@ -3,9 +3,6 @@
 # Request, Wait, Launch for Concurent Threads Que, Dynamic Link Library.
 Request, Wait, Launch for Concurrent Threads Que.
 
-## Server, Buffer and Networking For Full Stack Development.
-- Architecture.PNG => https://drive.google.com/file/d/1AzNi2YrukRCVLelxfj8uvzhFDI4ytWBs/view?usp=sharing
-
 ### Using C++
 
 ### Using Windows 11 Home
