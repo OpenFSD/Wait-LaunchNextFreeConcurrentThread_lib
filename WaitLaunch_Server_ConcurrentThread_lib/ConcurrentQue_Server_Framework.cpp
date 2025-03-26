@@ -16,13 +16,9 @@ namespace ConcurrentQue
 
 	}
 
-	void ConcurrentQue_Server_Framework::Request_Wait_Launch_ConcurrentThread(unsigned char concurrent_CoreId)
+	ConcurrentQue_Server_LaunchConcurrency* ConcurrentQue_Server_Framework::Get_LaunchConcurrency()
 	{
-		ConcurrentQue::ConcurrentQue_Server_Framework::Get_LaunchConcurrency()->Thread_Start(concurrent_CoreId);
-	}
-	void ConcurrentQue_Server_Framework::Concurrent_Thread_End(unsigned char concurrent_CoreId)
-	{
-		ConcurrentQue::ConcurrentQue_Server_Framework::Get_LaunchConcurrency()->Thread_End(concurrent_CoreId);
+		return ptr_LaunchConcurrency;
 	}
 
 	void ConcurrentQue_Server_Framework::Create_ConcurrentQue()
@@ -34,29 +30,29 @@ namespace ConcurrentQue
 			ConcurrentQue::ConcurrentQue_Server_Framework::Get_LaunchConcurrency()->Get_GlobalForLaunchConcurrency()->Get_NumCores()
 		);
 	}
-
-	ConcurrentQue_Server_LaunchConcurrency* ConcurrentQue_Server_Framework::Get_LaunchConcurrency()
+	void ConcurrentQue_Server_Framework::Request_Wait_Launch(unsigned char concurrent_CoreId)
 	{
-		return ptr_LaunchConcurrency;
+		ConcurrentQue::ConcurrentQue_Server_Framework::Get_LaunchConcurrency()->Thread_Start(concurrent_CoreId);
 	}
+	void ConcurrentQue_Server_Framework::Thread_End(unsigned char concurrent_CoreId)
+	{
+		ConcurrentQue::ConcurrentQue_Server_Framework::Get_LaunchConcurrency()->Thread_End(concurrent_CoreId);
+	}
+
 	__int16 ConcurrentQue_Server_Framework::Get_coreId_To_Launch()
 	{
 		return ConcurrentQue::ConcurrentQue_Server_Framework::Get_LaunchConcurrency()->Get_Control_Of_LaunchConcurrency()->Get_coreId_To_Launch();
 	}
-
 	bool ConcurrentQue_Server_Framework::Get_Flag_Active()
 	{
 		return ConcurrentQue::ConcurrentQue_Server_Framework::Get_LaunchConcurrency()->Get_GlobalForLaunchConcurrency()->GetConst_Core_ACTIVE();
 	}
-
 	bool ConcurrentQue_Server_Framework::Get_Flag_Idle()
 	{
 		return ConcurrentQue::ConcurrentQue_Server_Framework::Get_LaunchConcurrency()->Get_GlobalForLaunchConcurrency()->GetConst_Core_IDLE();
 	}
-
 	bool ConcurrentQue_Server_Framework::Get_State_LaunchBit()
 	{
 		return ConcurrentQue::ConcurrentQue_Server_Framework::Get_LaunchConcurrency()->Get_Control_Of_LaunchConcurrency()->Get_State_ConcurrentCore(0);
 	}
-
 }

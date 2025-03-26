@@ -21,11 +21,11 @@ extern "C" __declspec(dllexport) void Create_ConcurrentQue()
 {
     ConcurrentQue::ConcurrentQue_Server_Framework::Create_ConcurrentQue();
 }
-extern "C" __declspec(dllexport) void Request_Wait_Launch_ConcurrentThread(unsigned char concurrent_CoreId)
+extern "C" __declspec(dllexport) void Request_Wait_Launch(unsigned char concurrent_CoreId)
 {
     ConcurrentQue::ConcurrentQue_Server_Framework::Request_Wait_Launch_ConcurrentThread(concurrent_CoreId);
 }
-extern "C" __declspec(dllexport) void Concurrent_Thread_End(unsigned char concurrent_CoreId)
+extern "C" __declspec(dllexport) void Thread_End(unsigned char concurrent_CoreId)
 {
     ConcurrentQue::ConcurrentQue_Server_Framework::Concurrent_Thread_End(concurrent_CoreId);
 }
